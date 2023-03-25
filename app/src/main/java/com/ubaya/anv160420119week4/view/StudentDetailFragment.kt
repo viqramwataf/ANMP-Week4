@@ -34,9 +34,9 @@ class StudentDetailFragment : Fragment() {
     fun observeViewModel() {
         viewModel.studentLD.observe(viewLifecycleOwner, Observer {
             txtID.setText(it.id)
-            txtName.setText(it.id)
-            txtBod.setText(it.id)
-            txtPhone.setText(it.id)
+            txtName.setText(it.name)
+            txtBod.setText(it.bod)
+            txtPhone.setText(it.phone)
         })
     }
 }
