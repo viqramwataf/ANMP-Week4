@@ -17,8 +17,6 @@ class StudentListFragment : Fragment() {
     private lateinit var viewModel: ListViewModel
     private val studentListAdapter = StudentListAdapter(arrayListOf())
 
-
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(ListViewModel::class.java)
@@ -33,7 +31,6 @@ class StudentListFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_student_list, container, false)
-
 //        viewModel = ViewModelProvider(this).get(ListViewModel::class.java)
 //        viewModel.refresh()
 //        recView.layoutManager = LinearLayoutManager(context)
@@ -61,6 +58,5 @@ class StudentListFragment : Fragment() {
                 progressLoad.visibility = View.GONE
             }
         })
-
     }
 }
