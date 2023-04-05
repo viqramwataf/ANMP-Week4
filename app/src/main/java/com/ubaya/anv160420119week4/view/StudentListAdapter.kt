@@ -3,10 +3,13 @@ package com.ubaya.anv160420119week4.view
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.ProgressBar
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.ubaya.anv160420119week4.R
 import com.ubaya.anv160420119week4.model.Student
+import com.ubaya.anv160420119week4.util.loadImage
 import kotlinx.android.synthetic.main.student_list_item.view.*
 
 class StudentListAdapter(val studenList:ArrayList<Student>):RecyclerView.Adapter<StudentListAdapter.StudentViewHolder>() {
@@ -24,10 +27,19 @@ class StudentListAdapter(val studenList:ArrayList<Student>):RecyclerView.Adapter
 
 
         holder.view.btnDetail.setOnClickListener {
-            val action = StudentListFragmentDirections.actionStudentDetail()
-            Navigation.findNavController(it).navigate(action)
+            val action = studenList[position].id?.let { it1 ->
+                StudentListFragmentDirections.actionStudentDetail(
+                    it1
+                )
+            }
+            if (action != null) {
+                Navigation.findNavController(it).navigate(action)
+            }
         }
 
+        var imageView = holder.view.findViewById<ImageView>(R.id.imgView)
+        var progressBar = holder.view.findViewById<ProgressBar>(R.id.progressBar)
+        imageView.loadImage(studenList[position].photoUrl, progressBar)
     }
 
     override fun getItemCount(): Int {
