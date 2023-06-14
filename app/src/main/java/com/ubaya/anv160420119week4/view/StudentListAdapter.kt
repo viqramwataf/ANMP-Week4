@@ -61,4 +61,5 @@ class StudentListAdapter(val studenList:ArrayList<Student>):RecyclerView.Adapter
         val action = StudentListFragmentDirections.actionStudentDetail(v.tag.toString())
         Navigation.findNavController(v).navigate(action)
     }
+
 }

@@ -54,7 +54,7 @@
                     android:layout_marginStart="32dp"
                     android:layout_marginTop="24dp"
                     android:text="@{student.id}"
-                    android:onClick="@{listener::onButtonDetailClick}"
+
                     app:layout_constraintStart_toEndOf="@+id/imgView"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -78,6 +78,8 @@
                     android:layout_marginStart="164dp"
                     android:layout_marginTop="64dp"
                     android:text="Detail"
+                    android:tag="@{student.id}"
+                    android:onClick="@{(view)->listener.onButtonDetailClick(view)}"
                     app:layout_constraintStart_toEndOf="@+id/imgView"
                     app:layout_constraintTop_toTopOf="parent" />
 
